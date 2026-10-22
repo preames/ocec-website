@@ -1,0 +1,268 @@
+/* Orange County Equality Coalition — site stylesheet
+   Colors come from the original Wix theme; fonts are standard system fonts. */
+
+:root {
+  --teal: #33958f;
+  --teal-light: #8ad1ce;
+  --teal-dark: #207671;
+  --teal-bright: #3bbab5;
+  --yellow: #ffcb05;
+  --orange: #f29913;
+  --orange-text: #e57d22;
+  --brown: #784115;
+  --text: #383838;
+  --heading-gray: #8c8b8b;
+  --link-blue: #4345f0;
+  --page-bg: #ffffff;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Per-page background colors (set as a class on <body>) */
+body.bg-yellow { --page-bg: #f7c80e; }
+body.bg-teal   { --page-bg: #8ad1ce; }
+body.bg-gray   { --page-bg: #e5e5e5; }
+body.bg-lavender { --page-bg: #d8dae6; }
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--page-bg);
+}
+a { color: inherit; }
+img { max-width: 100%; height: auto; }
+h1, h2, h3 { margin: 0 0 0.5em; font-weight: normal; }
+p { margin: 0 0 1em; }
+
+/* ---------- Top bar: social icons + donate ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 24px 12px 120px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.topbar .social img { width: 57px; height: 57px; display: block; }
+.topbar .social { display: flex; gap: 24px; }
+.topbar .btn { margin-left: 40px; }
+
+/* ---------- Header: logo, title, nav ---------- */
+.site-header {
+  position: relative;
+  background: #fefdfd;
+  border-bottom: 4px solid var(--teal-dark);
+  box-shadow: 0 0 5px rgba(0,0,0,.6);
+  min-height: 180px;
+}
+.site-header .logo {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 158px;
+  padding: 7px;
+  background: #fefdfd;
+  box-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+.site-header .logo img { display: block; width: 100%; }
+.site-header .site-title {
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: bold;
+  font-size: 49px;
+  line-height: 1.2;
+  padding: 70px 180px 30px;
+}
+.site-header .site-title a { text-decoration: none; color: #000; }
+
+.site-nav { position: absolute; top: 12px; right: 16px; }
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+.site-nav li { position: relative; }
+.site-nav a {
+  display: block;
+  padding: 7px 24px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  white-space: nowrap;
+}
+.site-nav li.active > a { background: #383838; color: #fefdfd; }
+.site-nav li:hover > a { background: #383838; color: #fefdfd; }
+.site-nav li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  background: #fefdfd;
+  box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  z-index: 10;
+}
+.site-nav li:hover ul { display: flex; }
+.site-nav li ul a { text-transform: none; font-weight: normal; padding: 8px 16px; }
+.site-nav li ul li:hover > a { background: var(--teal); color: #fefdfd; }
+
+/* ---------- Page content ---------- */
+.content {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+.content.narrow { max-width: 900px; }
+.content.panel { background: #fefdfd; margin-top: 40px; margin-bottom: 40px; }
+.page-title {
+  font-family: var(--serif);
+  color: var(--heading-gray);
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.serif { font-family: var(--serif); }
+.center { text-align: center; }
+
+/* Buttons (the teal rounded buttons used throughout the site) */
+.btn {
+  display: inline-block;
+  background: var(--teal);
+  color: #fefdfd;
+  font-size: 18px;
+  line-height: 40px;
+  padding: 0 24px;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.6);
+  text-decoration: none;
+  transition: background .3s;
+}
+.btn:hover { background: var(--brown); }
+.btn.large { line-height: 80px; min-width: 180px; text-align: center; }
+.btn.small { font-size: 16px; line-height: 34px; padding: 0 16px; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: rgba(252,145,6,.79);
+  border-top: 3px solid rgba(254,253,253,.4);
+  border-bottom: 3px solid rgba(254,253,253,.4);
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+.site-footer .actions { display: flex; justify-content: center; gap: 70px; flex-wrap: wrap; }
+.site-footer .note { margin-top: 120px; font-size: 16px; }
+.site-footer .privacy { font-size: 13px; color: #fefdfd; margin: 0; }
+.site-footer .privacy a { color: var(--link-blue); }
+
+/* ---------- Home ---------- */
+.gallery {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 40px 20px;
+}
+.gallery img {
+  flex: none;
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  object-fit: cover;
+  scroll-snap-align: center;
+}
+.home-panel {
+  background: #fefdfd;
+  max-width: 980px;
+  margin: 0 auto 0;
+  padding: 150px 60px 200px;
+  text-align: center;
+}
+.home-panel h2 { font-family: var(--serif); font-size: 42px; color: var(--text); }
+.home-panel .vision {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--orange-text);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---------- About us ---------- */
+.rule { height: 0; margin: 0 20px 40px; box-shadow: 0 8px 12px -4px rgba(0,0,0,.3); }
+.about-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 260px;
+  gap: 40px;
+  align-items: start;
+  padding: 30px 40px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.about-row:last-child { border-bottom: none; }
+.about-row .text { font-family: var(--serif); font-size: 15px; line-height: 1.7; }
+.badge {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fefdfd;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.badge.teal { background: var(--teal-light); }
+.badge.orange { background: var(--orange-text); }
+.badge.yellow { background: var(--yellow); }
+.about-row .side { text-align: center; }
+.about-row .side img { display: block; margin: 16px auto 0; }
+
+/* ---------- Membership ---------- */
+.two-col { display: grid; grid-template-columns: 1fr 260px; gap: 50px; align-items: start; }
+.feature-row { display: grid; grid-template-columns: 330px 1fr; gap: 30px; align-items: start; margin-bottom: 60px; }
+.feature-row img { width: 330px; height: 227px; object-fit: cover; display: block; }
+.feature-row h3 { color: var(--heading-gray); font-size: 20px; margin-bottom: 8px; }
+.feature-row p { font-size: 14px; }
+.icon-center { display: block; margin: 0 auto 30px; width: 104px; }
+
+/* ---------- Educational support ---------- */
+.banner { display: flex; gap: 4px; margin-bottom: 30px; }
+.banner img { flex: 1 1 0; min-width: 0; height: 196px; object-fit: cover; }
+.edu h2 { color: var(--teal-bright); font-size: 26px; font-weight: bold; margin-top: 30px; }
+.edu p { font-size: 14px; }
+ul.links { list-style: none; padding: 0; margin: 0 0 1em; }
+ul.links li { margin-bottom: .6em; }
+ul.links li::before { content: "- "; }
+ul.links.spaced li { margin-bottom: 1.2em; }
+ul.links.spaced li::before { content: ""; }
+
+/* ---------- Resources ---------- */
+.resource { max-width: 560px; margin: 0 auto 50px; }
+.resource h3 { font-size: 20px; margin-bottom: 8px; }
+.resource p { font-size: 14px; }
+
+/* ---------- Task force / legal ---------- */
+.title-with-icon { position: relative; }
+.title-with-icon img { position: absolute; right: 0; top: 0; width: 70px; transform: rotate(30deg); }
+.prose { font-family: var(--serif); font-size: 18px; line-height: 1.5; }
+.prose.legal { font-size: 16px; }
+.prose .highlight { color: #151fd6; font-style: italic; }
+.donate-tf { text-align: center; margin-top: 30px; }
+.donate-tf a { color: var(--teal-light); font-weight: bold; font-size: 24px; text-decoration: none; }
+.donate-tf a:hover { text-decoration: underline; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 800px) {
+  .topbar { padding-left: 24px; }
+  .site-header .logo { position: static; width: 120px; margin: 0 auto; }
+  .site-header .site-title { padding: 10px 20px 20px; font-size: 32px; }
+  .site-nav { position: static; }
+  .site-nav > ul { flex-wrap: wrap; justify-content: center; }
+  .about-row, .two-col, .feature-row { grid-template-columns: 1fr; }
+  .feature-row img { width: 100%; height: auto; }
+  .banner { flex-direction: column; }
+  .banner img { height: auto; }
+  .gallery img { width: 220px; height: 220px; }
+}
