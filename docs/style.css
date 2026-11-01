@@ -156,6 +156,8 @@ p { margin: 0 0 1em; }
 .site-footer .note { margin-top: 120px; font-size: 16px; }
 .site-footer .privacy { font-size: 13px; color: #fefdfd; margin: 0; }
 .site-footer .privacy a { color: var(--link-blue); }
+.site-footer .last-updated { font-size: 12px; color: #fefdfd; margin: 6px 0 0; opacity: .85; }
+.site-footer .last-updated:has(time:empty) { display: none; }
 
 /* ---------- Home ---------- */
 .gallery {
