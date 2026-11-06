@@ -268,3 +268,9 @@ ul.links.spaced li::before { content: ""; }
   .banner img { height: auto; }
   .gallery img { width: 220px; height: 220px; }
 }
+
+/* ---------- Membership PayPal form ---------- */
+.paypal-membership { margin-bottom: 30px; font-size: 14px; }
+.paypal-membership label { display: block; margin-bottom: 4px; }
+.paypal-membership select { display: block; margin-bottom: 8px; max-width: 100%; }
+.paypal-membership input[type="image"] { display: block; }
